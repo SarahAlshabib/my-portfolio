@@ -6,6 +6,18 @@
     <title>Sarah Alshabib | Tech Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #lang-list {
+            display: none;
+            margin-top: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+            padding-left: 5px;
+        }
+    </style>
 </head>
 <body>
     <div id="stars-container"></div>
@@ -70,15 +82,15 @@
             <h2><i class="fas fa-university"></i> Academic Projects</h2>
             <div class="item">
                 <span class="project-name"><i class="fas fa-share-alt"></i> Sharek (شارك) | Sustainability Hub</span>
-                <p>A comprehensive web platform dedicated to environmental sustainability by facilitating the redistribution of school supplies and reducing educational waste.</p>
+                <p>A web platform dedicated to environmental sustainability by facilitating the redistribution of school supplies.</p>
             </div>
             <div class="item">
                 <span class="project-name"><i class="fas fa-bus"></i> Subus | University Transport System</span>
-                <p>A smart mobility application designed for real-time tracking and management of university bus fleets, enhancing student commute efficiency.</p>
+                <p>A smart mobility application designed for real-time tracking of university bus fleets.</p>
             </div>
             <div class="item">
                 <span class="project-name"><i class="fas fa-film"></i> Advanced Cinema Management Database</span>
-                <p>High-performance relational database system engineered with complex SQL triggers, B-Tree indexing, and DFD/UML documentation.</p>
+                <p>High-performance relational database system engineered with SQL triggers and B-Tree indexing.</p>
             </div>
         </section>
 
@@ -91,7 +103,6 @@
                         <li><i class="fas fa-chevron-right"></i> AI Logic & Predictive Analytics</li>
                         <li><i class="fas fa-chevron-right"></i> Cloud Infrastructure (MS Azure)</li>
                         <li><i class="fas fa-chevron-right"></i> Advanced SQL & Database Design</li>
-                        <li><i class="fas fa-chevron-right"></i> Systems Architecture (UML/DFD)</li>
                         <li><i class="fas fa-chevron-right"></i> UI/UX Design Thinking (Figma)</li>
                     </ul>
                 </div>
@@ -101,10 +112,18 @@
                         <li><i class="fas fa-chevron-right"></i> Agile Team Leadership</li>
                         <li><i class="fas fa-chevron-right"></i> Strategic Project Pitching</li>
                         <li><i class="fas fa-chevron-right"></i> Quality Assurance (QA) Mindset</li>
-                        <li><i class="fas fa-chevron-right"></i> Complex Problem Solving</li>
-                        <li><i class="fas fa-chevron-right"></i> User-Centric Methodology</li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="item" style="margin-top: 25px;">
+                <h3 id="lang-header" style="cursor: pointer; color: #00d2ff; display: flex; align-items: center; gap: 10px; margin: 0;">
+                    <i class="fas fa-language"></i> Languages (Click to View)
+                </h3>
+                <ul id="lang-list" style="list-style: none; padding: 0; margin-left: 35px;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: #00d2ff; margin-right: 10px;"></i> Arabic (Native)</li>
+                    <li><i class="fas fa-check" style="color: #00d2ff; margin-right: 10px;"></i> English (Professional)</li>
+                </ul>
             </div>
         </section>
 
@@ -137,6 +156,7 @@
             setTimeout(() => { star.remove(); }, duration * 1000);
         }
         setInterval(createStar, 100);
+
         document.addEventListener('mousemove', (e) => {
             const container = document.getElementById('stars-container');
             const mouseStar = document.createElement('div');
@@ -146,6 +166,17 @@
             mouseStar.style.animationDuration = '1s';
             container.appendChild(mouseStar);
             setTimeout(() => { mouseStar.remove(); }, 1000);
+        });
+
+        const langHeader = document.getElementById('lang-header');
+        const langList = document.getElementById('lang-list');
+
+        langHeader.addEventListener('click', () => {
+            if (langList.style.display === 'block') {
+                langList.style.display = 'none';
+            } else {
+                langList.style.display = 'block';
+            }
         });
     </script>
 </body>
